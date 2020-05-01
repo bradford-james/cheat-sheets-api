@@ -1,0 +1,23 @@
+{
+  "name": "cheat-sheets-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Bradford James <bradwettig@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "debug": "^4.1.1",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "http-errors": "^1.7.3",
+    "mongoose": "^5.9.9",
+    "morgan": "^1.10.0"
+  }
+}
