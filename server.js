@@ -14,8 +14,9 @@ const
 
 // App Setup
 const app = express();
-app.use(helmet());
-app.use(cors(corsOptions));
+// app.use(helmet());
+// app.use(cors(corsOptions));
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
