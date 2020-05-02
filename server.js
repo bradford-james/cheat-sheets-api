@@ -9,9 +9,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 const controller = require('../controllers');
 
-const indexRouter = require('./routes/');
+// const indexRouter = require('./routes/');
 const { db_url } = require('./config');
-const 
 
 // App Setup
 const app = express();
