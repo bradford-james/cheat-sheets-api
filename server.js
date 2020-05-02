@@ -7,9 +7,8 @@ const compression = require('compression');
 const helmet = require('helmet');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const controller = require('./controllers');
 
-// const indexRouter = require('./routes/');
+const indexRouter = require('./routes/');
 const { db_url } = require('./config');
 
 // App Setup
@@ -41,21 +40,7 @@ mongoose
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-// Routes
-// app.use('/api', indexRouter);
-// const whitelist = ['https://nostalgic-pasteur-f4a6fb.netlify.app', 'localhost'];
-// const corsOptions = {
-//   origin: function (origin, callback) {
-//     if (whitelist.indexOf(origin) !== -1) {
-//       callback(null, true);
-//     } else {
-//       callback(new Error('Not Allowed by CORS'));
-//     }
-//   },
-// };
-
-app.get('/sheets', controller.getSheets);
-app.get('/sheet', controller.getSheet);
+app.use('/', indexRouter);
 
 // 404 Handler
 app.use(function (req, res, next) {
