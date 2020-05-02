@@ -54,8 +54,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //   },
 // };
 
-app.get('/api/sheets', cors(), controller.getSheets);
-app.get('/api/sheet', cors(), controller.getSheet);
+app.get('/sheets', cors(), controller.getSheets);
+app.get('/sheet', cors(), controller.getSheet);
 
 // 404 Handler
 app.use(function (req, res, next) {
