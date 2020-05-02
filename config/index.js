@@ -1,6 +1,10 @@
+const corsURL =
+  process.env.NODE_ENV == 'production'
+    ? process.env.PRODUCTION_CORS_URL
+    : 'http://localhost:8081';
+
 exports.corsOptions = {
-  // origin: process.env.PRODUCTION_CORS_URL || 'http://localhost:8081',
-  origin: 'https://nostalgic-pasteur-f4a6fb.netlify.app',
+  origin: corsURL,
 };
 
 exports.db_url =
