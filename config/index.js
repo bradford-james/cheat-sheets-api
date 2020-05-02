@@ -7,6 +7,9 @@ exports.corsOptions = {
   origin: corsURL,
 };
 
-exports.db_url =
-  process.env.MONGODB_URI ||
-  'mongodb+srv://adminUser:csAdmin1@cluster0-hbzic.mongodb.net/test?retryWrites=true&w=majority';
+const dbURL =
+  process.env.NODE_ENV == 'production'
+    ? process.env.PROD_MONGODB_URI
+    : 'mongodb://localhost:27017';
+
+exports.db_url = dbURL;
