@@ -4,7 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const compression = require('compression');
-// const helmet = require('helmet');
+const helmet = require('helmet');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const controller = require('./controllers');
@@ -14,8 +14,8 @@ const { db_url } = require('./config');
 
 // App Setup
 const app = express();
-// app.use(helmet());
-// app.use(cors(corsOptions));
+app.use(helmet());
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -54,8 +54,8 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 //   },
 // };
 
-app.get('/sheets', cors(), controller.getSheets);
-app.get('/sheet', cors(), controller.getSheet);
+app.get('/sheets', controller.getSheets);
+app.get('/sheet', controller.getSheet);
 
 // 404 Handler
 app.use(function (req, res, next) {
