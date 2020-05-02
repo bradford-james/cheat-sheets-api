@@ -9,12 +9,12 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/');
-const { db_url } = require('./config');
+const { corsOptions, db_url } = require('./config');
 
 // App Setup
 const app = express();
 app.use(helmet());
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
