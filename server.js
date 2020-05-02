@@ -9,7 +9,8 @@ const cors = require('cors');
 const mongoose = require('mongoose');
 
 const indexRouter = require('./routes/');
-const { corsOptions, dev_db_url } = require('./config');
+const { corsOptions, db_url } = require('./config');
+const 
 
 // App Setup
 const app = express();
@@ -23,7 +24,7 @@ app.use(compression());
 
 // DB Connection
 mongoose.Promise = global.Promise;
-const mongoDB = process.env.MONGODB_URI || dev_db_url;
+const mongoDB = db_url;
 mongoose
   .connect(mongoDB, {
     useNewUrlParser: true,
@@ -50,10 +51,8 @@ app.use(function (req, res, next) {
 
 // Error Handler
 app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
-
   res.status(err.status || 500);
 });
 
