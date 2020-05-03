@@ -1,17 +1,13 @@
-const Sheet = require('../models/sheet');
-const Column = require('../models/column');
-const Category = require('../models/category');
-const Command = require('../models/command');
+const Sheet = require('../models/sheet')
 
-exports.getSheets = function (req, res) {
-  Sheet.find({}, 'cli').exec(function (err, list_sheets) {
-    err ? next(err) : res.send(list_sheets);
-  });
-};
+exports.getSheets = (req, res, next) => {
+  Sheet.find({}, 'cli').exec((err, listSheets) =>
+    err ? next(err) : res.send(listSheets)
+  )
+}
 
-exports.getSheet = function (req, res) {
-  Sheet.findOne({ cli: req.query.name })
-  .exec(function (err, list_sheets) {
-    err ? next(err) : res.send(list_sheets);
-  });
-};
+exports.getSheet = (req, res, next) => {
+  Sheet.findOne({ cli: req.query.name }).exec((err, listSheets) =>
+    err ? next(err) : res.send(listSheets)
+  )
+}

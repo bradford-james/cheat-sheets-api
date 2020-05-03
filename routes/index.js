@@ -1,9 +1,10 @@
-const express = require('express');
-const router = express.Router();
-const controller = require('../controllers');
+const express = require('express')
 
-router.get('/sheets', controller.getSheets);
-router.get('/sheet', controller.getSheet);
+const router = express.Router()
+const controller = require('../controllers')
+
+router.get('/sheets', controller.getSheets)
+router.get('/sheet', controller.getSheet)
 // router.post('/sheet');
 
-module.exports = router;
+module.exports = router
